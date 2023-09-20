@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class WeaponType
+    public enum WeaponType
     {
+        Axe = 1,
+        Great_Axe,
+        Dagger,
+        Staff,
+        Sword,
+        Colossus_Blade,
+        Short_Bow,
+        Long_Bow,
+        Javelin,
+        Katana
+
     }
 }

@@ -9,7 +9,7 @@ namespace DungeonLibrary
 
     //WeaponType Type {get{}set{}}
     //CTOR
-    //add WeponType type to param list
+    //add WeaponType type to param list
 
     public class Weapon
     {
@@ -18,7 +18,7 @@ namespace DungeonLibrary
         private string _name;
         private int _bonusHitChance;
         private bool _isTwoHanded;
-
+        private WeaponType _type;
         public int MinDamage
         {
             get { return _minDamage; }
@@ -60,8 +60,13 @@ namespace DungeonLibrary
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
+        public WeaponType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
 
-        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded)
+        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
             //ANY properties that have business rules that depend on OTHER properties
             //must be assigned AFTER the independent properties are set.
@@ -75,7 +80,7 @@ namespace DungeonLibrary
             Name = name;
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
-            //Type = type;
+            Type = type;
         }//Fully-Qualified Constructor
         public Weapon()
         {
@@ -86,10 +91,11 @@ namespace DungeonLibrary
         public override string ToString()
         {
             //return base.ToString();//namespace.classname
-            return $"{Name}\n" +
+            return $"--={Name}=--\n" +
                 $"Damage: {MinDamage} - {MaxDamage}\n" +
                 $"Bonus Hit: {BonusHitChance}%\n" +
-                $"{(IsTwoHanded ? "Two-" : "One-")} Handed";// update with type
+                $"{(IsTwoHanded ? "Two-" : "One-")}Handed " +
+                $"{Type}";// update with type
 
         }
 
