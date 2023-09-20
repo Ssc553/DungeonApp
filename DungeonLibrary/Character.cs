@@ -3,13 +3,13 @@
 namespace DungeonLibrary
 {
     public class Character
-    {
+    {// Field
         private string _name;
         private int _hitChance;
         private int _block;
         private int _maxLife;
         private int _life;
-
+       //Property 
         public string Name
         {
             get { return _name; }
