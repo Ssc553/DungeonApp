@@ -13,6 +13,6 @@ namespace DungeonLibrary
         Rouge,
         
         Amazon,
-        Assassin,
+        
     }
 }

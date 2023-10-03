@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-
+    
     //WeaponType Type {get{}set{}}
     //CTOR
     //add WeaponType type to param list
@@ -19,7 +19,9 @@ namespace DungeonLibrary
         private int _bonusHitChance;
         private bool _isTwoHanded;
         private WeaponType _type;
+        private int _critChance;
         public int MinDamage
+            
         {
             get { return _minDamage; }
             set
@@ -66,7 +68,9 @@ namespace DungeonLibrary
             set { _type = value; }
         }
 
-        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, WeaponType type)
+        public int CritChance { get => _critChance; set => _critChance = value; }
+
+        public Weapon(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded, WeaponType type, int critChance = 10)//MAYBE
         {
             //ANY properties that have business rules that depend on OTHER properties
             //must be assigned AFTER the independent properties are set.
@@ -81,7 +85,10 @@ namespace DungeonLibrary
             BonusHitChance = bonusHitChance;
             IsTwoHanded = isTwoHanded;
             Type = type;
+            CritChance = critChance;
         }//Fully-Qualified Constructor
+
+
         public Weapon()
         {
 

@@ -2,7 +2,12 @@
 
 namespace DungeonLibrary
 {
-    public class Character
+    //The abstract modifier denotes this datatype class is "incomplete"
+    //We don't intend to create Character objects directly, but instead will use this 
+    //class as a starting point for other, more specific types (Player and Monster)
+
+    public abstract class Character //: ICharacter                                                    
+        // public Parent-only class called Character
     {// Field
         private string _name;
         private int _hitChance;
@@ -46,11 +51,15 @@ namespace DungeonLibrary
                 }
             }
         }//end Life
+
+       
+
         //CTOR
+
         public Character()
         {
-             //default CTOR
-        }
+            //default CTOR
+        }//(string name, int hitChance, int block, int maxLife)
         public Character(string name, int hitChance, int block, int maxLife)
         {
             MaxLife = maxLife;
@@ -66,21 +75,36 @@ namespace DungeonLibrary
             return $"----- {Name} -----\n" +
                 $"Life: {Life} of {MaxLife}\n" +
                 $"Hit Chance: {HitChance}%\n" +
-                $"Block: {Block}%";
+                $"Block: {Block}%\n";
+                
         }
-        public int CalcBlock()
+        //virtual keyword allows these methods to be overridden in child classes
+        public virtual int CalcBlock()
         {
+            // can be overridden in your OWN monster subtypes
             return Block;
         }
-        public int CalcHitChance()
+        public virtual int CalcHitChance()
         {
             return HitChance;
         }
-        public int CalcDamage()
-        {
-            return 0;
-        }
+        // any child classes MUST override abstract methods
+        // you can only define abstract methods inside of abstract classes
+        public abstract int CalcDamage();
+
+        //public abstract int CalcSpecial();
+       
+        //public string testDamage()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
         //Combat Methods
 
+
+
+
     }//end class
+
+    
 }//end namespace
